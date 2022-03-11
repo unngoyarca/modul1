@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="adrian.css">
+    <title>Adrian Arca</title>
+</head>
+<body>
+   <div id="app"></div>
+
+   <script>
+       //Model
+    let  welCome = "Adrian Arca"
+       //view
+       updateView();
+        function updateView() {
+        document.getElementById('app').innerHTML = `
+        
+        <div class="otro">Welcome</div>
+        <div class="content">
+            
+            <p>
+                Litt om meg
+            </p>
+            <center>
+                <table>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Adress</th>
+                        <th scope="col">Age</th>
+                    </tr>
+                    <tr>
+                        <td scope="row">Adrian</td>
+                        <td>Skien</td>
+                        <td>29</td>
+                    </tr>
+                </table>
+                </center>
+        </div>
+
+        <div class="container">
+        <div onclick="doSomething()" class="card"><ion-icon name="FaceBook"><a href="https://www.facebook.com/osmar.arca">Ⓕ</a></div>
+        <div class="card"><ion-icon name="Instagram">Ⓘ</div>
+        <div class="card"><ion-icon name="Discord" >Ⓓ</div>
+    </div>
+
+
+
+        `
+        }
+      
+       //controller
+    //    function doSomething() {
+    //     document.getElementsByName('FaceBook').innerHTML =  ;
+    //    } 
+       
+
+
+   </script>
+</body>
+</html>
