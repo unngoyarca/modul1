@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spill</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(pokeground.png);
+            background-size: 1950px 980px;
+            background-repeat: no-repeat;
+        }
+
+
+        .players {
+            margin-top: 350px;
+            font-family: 'Orbitron', sans-serif;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 20px;
+
+        }
+
+        .player1 {
+            float: left;
+            margin-left: 100px;
+        }
+
+        .player2 {
+            float: right;
+            margin-right: 100px;
+        }
+
+        .Resultat {
+
+            text-align: center;
+            margin-top: 650px;
+            font-family: 'Orbitron', sans-serif;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 30px;
+
+        }
+
+        .pokemon {
+            text-align: center;
+
+
+        }
+
+        img {
+            height: 95px;
+            width: 95px;
+        }
+
+        button {
+            border: none;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        //MODEL
+        var info = 'pokeball1.png';
+        var dataInfo = 'pokeball1.png';
+        var vinnerInfo = '';
+        //var chico = '<img src="chico.png">';
+        
+
+        //VIEW
+        function showApp() {
+            document.getElementById('app').innerHTML = /*html*/ `
+            <h1>PerOppgave - Team 5</h1> </br>
+            <div class="pokemon">
+            
+            <button style="background-color:transparent;" onclick='valgtKnapp("chico.png")'><img src="chico.png"></button>
+            <button style="background-color:transparent;" onclick='valgtKnapp("charmander.png")'><img src="charmander.png"></button>
+            <button style="background-color:transparent;" onclick='valgtKnapp("totodei.png")'><img src="totodei.png"></button></br>
+            </div>
+
+            <div class="players">
+            <div class="player1" >Player 1: <span><img src="${info}"></span></div>
+            <div class="player2" > <span><img src="${dataInfo}"> Player 2:</span></div>
+            </div>
+            
+            <div class="Resultat">Resultat: ${vinnerInfo}</div>
+            
+            `;
+        }
+        showApp();
+        //CONTROLLER
+        function valgtKnapp(clicked) {
+            var data = Math.floor(Math.random() * 30) + 1;
+            vinnerInfo = '';
+            info = clicked;
+            if (data <= 10) dataInfo = 'chico.png';
+            else if (data >= 11 && data <= 20) dataInfo = 'totodei.png';
+            else dataInfo = 'charmander.png';
+            console.log(data);
+            // || "or" kun en av statementene må stemme for å gå igjennom.
+            // && dette må stemme i TILLEGG for at det skal gå igjennom.
+            if (info == dataInfo) vinnerInfo = 'Uavgjort';
+            else if (info == 'chico.png' && dataInfo == 'totodei.png' ||
+                info == 'totodei.png' && dataInfo == 'charmander.png' ||
+                info == 'charmander.png' && dataInfo == 'chico.png') vinnerInfo = 'Player2 har tapt';
+            else vinnerInfo = 'Du har tapt';
+            showApp();
+        }
+    </script>
+
+</body>
+
+</html>
