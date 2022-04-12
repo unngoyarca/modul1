@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f8f8f8
+    
+
+}
+button{
+    background: transparent;
+    border: none;
+
+}
+
+input {
+    top: 5px;
+    right: -65px;
+    position: relative;
+   
+}
+.adding {
+    left: 100px;
+    bottom: 1px;
+    position: absolute;
+}
+.fjern {
+    bottom: 1px;
+    position: absolute;
+}
+
+.card {
+    
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background: rgb(239, 162, 29);
+    box-shadow: 0 25px 50px rgba(0,0,0,1.30);
+    border-radius: 20px;
+}
+.card i {
+    
+    position: absolute;
+    top: 40px;
+    left: -15px;
+    width: 280px;
+    height: 50px;
+    background: #479528;
+    border-radius: 30px;
+    border-bottom-left-radius: 0;
+}
+.card i::before 
+{
+    content: '';
+    position: absolute;
+    top: 50px;
+    width: 15px;
+    height: 30px;
+    background: #333;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 2;
+}
+.card i::after {
+    content:'';
+    position: absolute;
+    top: 50px;
+    width: 15px;
+    height: 15px;
+    background: #479528;
+}
+.resultado 
+{
+    font-family: 'Nunito', sans-serif;
+    display:grid;
+    position: relative;
+    top: 50px;
+    left: 15px;
+    justify-content: center;
+    /* background: gray; */
+}
+
