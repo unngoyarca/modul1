@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trening</title>
+    <style>
+        .containerBrus{
+            border: black solid 2px;
+        }
+
+        .handleKurv{
+            border: red solid 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+   
+    <script>
+        //Model
+        let appDiv = document.getElementById('app');
+        let varer = {
+            brus: [
+                {
+                navn: 'Cola Original',
+                kroner: 35,
+                antall: 10,
+                },
+                {
+                    navn: 'Cola Zero',
+                    kroner: 31,
+                    antall: 11,
+                },
+                {
+                    navn: 'Solo',
+                    kroner: 31,
+                    antall: 9,
+                },
+                {
+                    navn: 'Sprite',
+                    kroner: 29,
+                    antall: 14,
+                },
+            ],
+
+            shoppingKurv: [],
+
+        }
+
+        //View
+        view();
+        function view() {
+            let html = '';
+                html+=`
+                 <h1>Dette har jeg fått det til!</h1>
+                ` 
+
+            for (i = 0; i < varer.brus.length; i++){
+
+                html += `
+                <div class="containerBrus">
+                <div>${varer.brus[i].navn}</div>
+                <div>Pris: ${varer.brus[i].kroner} Kr.</div>
+                <div>Antall: ${varer.brus[i].antall}</div>
+                <button onclick="buy-btn">Buy</button>
+                <br>
+                </div>
+                ` 
+            }
+            html+= "<div class='handleKurv'>";
+                    for (let = 0; i < varer.shoppingKurv.length; i++) {
+                        const items = model.shoppingKurv[i];
+                        html += `
+                        <div>${items.navn} - ${items.kroner}</div>
+                        <div></div>
+                        `;
+                    }
+                    
+                html += '</div>';
+            
+
+            appDiv.innerHTML = html;
+        }
+
+
+        //Controller
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //hjelpeveriabel
+        let appDiv = document.getElementById('app');
+        //model
+        // let brus = ['Cola Zero', ' Solo', ' Pepsi Max', ' Urge']
+        let model = {
+
+            brus : [
+                {
+                name: 'Cola Zero',
+                antall: 1,
+                },
+                {
+                    name: 'Solo',
+                    antall: 1,
+                },
+                {
+                    name: 'Pepsi Max',
+                    antall: 1,
+                },
+            ],
+
+        
+        }
+        let add = '';
+        
+        
+
+        //view
+        view();
+        function view() {
+            let html = '';
+            for (i = 0; i < model.brus.length; i++) {
+                html += `
+            
+            <div>${model.brus[i].name}</div>
+            <div>${model.brus[i].antall}</div> <button onclick="plusser(${i})">+</button> <button onclick="minus(${i})">-</button>
+            <button onclick="fjern(${i})">Slett</button>
+            <button onclick="endre(${i})">Endre</button>
+            `
+            }
+            html += `
+            <br><input type="text" oninput="add = this.value">
+            <button onclick="leggTil()">Legg Til</button>
+            `
+
+            appDiv.innerHTML = html;
+        }
+
+        //controller
+        function leggTil() {
+            if (add == '') return;
+            model.brus.push({
+            name: add,
+            antall: 1,
+        })
+            add = '';
+            view();
+        }
+
+        function fjern(index) {
+            model.brus.splice(index, 1)
+            view();
+        }
+        
+        function endre(index) {
+            if (add == '') return;
+            model.brus[index].name = add;
+            add = '';
+            view();
+        }
+
+        function plusser(index) {
+            model.brus[index].antall++
+            view();
+        }
+
+        function minus(index){
+            if (model.brus[index].antall == 0) return;
+            model.brus[index].antall--
+            view();
+        }
+
+
+    </script>
+</body>
+
+</html>

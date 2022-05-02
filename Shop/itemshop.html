@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="model.js">
+    <link rel="stylesheet" href="view.js">
+    <link rel="stylesheet" href="controller.js"> -->
+    <title>Item Store</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //hjelpevariabel
+        let appDiv = document.getElementById('app');
+
+        //model
+
+        const model = {
+
+            potion: [
+                {
+                    name: 'Red',
+                    price: 100,
+                    antall: 1,
+                },
+                {
+                    name: 'Green',
+                    price: 100,
+                    antall: 1,
+                },
+                {
+                    name: 'Blue',
+                    price: 100,
+                    antall: 1,
+                }
+            ],
+
+            armor: [{
+                name: 'Leather Armor',
+                price: 130,
+                antall: 1,
+            },
+            {
+                name: 'Scale Armor',
+                price: 210,
+                antall: 1,
+
+            },
+            {
+                name: 'Light Armor',
+                price: 180,
+                antall: 1,
+            },
+            ],
+            weapons: [{
+                name: 'Short Sword',
+                price: 80,
+                antall: 1,
+            },
+            {
+                name: 'Daggers',
+                price: 50,
+                antall: 1,
+            },
+            {
+                name: 'Spears',
+                price: 125,
+                antall: 1,
+            },
+            ],
+
+
+
+            shoppingCart: [],
+            itemnummer: 1,
+        }
+        // let shoppingCart ='';
+
+        //view
+        show();
+        function show() {
+            let html = '';
+            html += `<div id="main">
+                <div class="storeName"> Arcana </div>
+                 <div>Welcome to my store!</div>
+                 </div>
+                `
+
+            html += `<div id="dataInfo">`
+            html += ``
+
+            for (let i = 0; i < model.potion.length; i++) {
+                html += ` 
+                <container class="potionItems">
+                <div>${model.potion[i].name}</div>
+                <div>${model.potion[i].price}</div>
+                <button onclick="buyButton('potion' , ${i})">Buy</button>
+                </container>
+              `
+
+            }
+
+            for (let i = 0; i < model.armor.length; i++) {
+                html += ` 
+                <container class="armorItems">
+                <div>${model.armor[i].name}</div>
+                <div>${model.armor[i].price}</div>
+                <button onclick="buyButton()">Buy</button>
+                </container>
+              `
+            }
+
+
+
+
+            for (let i = 0; i < model.weapons.length; i++) {
+                html += ` 
+                    <container class="weaponItems">
+                    <div>${model.weapons[i].name}</div>
+                    <div>${model.weapons[i].price}</div>
+                    <button onclick="buyButton()">Buy</button>
+                    </container>
+              `
+                html += `</div>`
+            }
+
+            html += "<div class='shopping-cart'>";
+            for (let i = 0; i < model.shoppingCart.length; i++) {
+                const item = model.shoppingCart[i];
+                html += `<div class="itemsBought">${item.name} - ${item.price}</div>
+                        <div class="itemStock">${model.itemnummer}</div>
+                        <button>+</button>
+                        <button>-</button>
+                `;
+            }
+            html += '</div>';
+            appDiv.innerHTML = html;
+        }
+
+        //controller
+        function buyButton(type, index) {
+            // butButton += shoppingCart;
+            if (type == "potion") {
+                console.log(model.potion[index]);
+                model.shoppingCart.push(model.potion[index]);
+                model.itemnummer
+            }
+
+
+            show();
+
+        }
+
+
+    </script>
+</body>
+
+</html>
